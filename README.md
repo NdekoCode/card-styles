@@ -57,3 +57,12 @@ Sur `card` on met un `padding-bottom` car on ne veut pas mettre de height sur no
   *Le padding en pourcentage permet de signaler au navigateur que l'on a envie de garder une certaine proportion ou ratio par rapport à la largeur ou à la hauteur, ici en mettant un `padding-bottom` en pourcentage c'est pour dire que l'on a envie que la hauteur garder une certaine ratio par rapport à la largeur*.
   Dans notre cas en précisant 150% sur le `padding-bottom`  on précise que le padding soit d'une certaine proportion, un certain pourcent par rapport à la largeur. et cela nous permet d'avoir des element qui auront toujours les memes proportions.
   Cette technique sympas nous evite à ne pas jouer avec les medias queries avec la propriétés `width`, `height` pour faire matcher les images.
+  Pour faire du beau sur nos images on va utiliser la proprieter CSS `filter` avec `brightness(0.75)` qui va permettre de jouer sur la *luminosité* et `saturate(1.2)` qui permet de jouer sur la *saturation* des images et enfin on va baiser un petit peu le contraste des nos images avec `contrast(0.85)` donc on va baiser de 15% le contraste de l'image donc on a:
+
+  ```{CSS}
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  ```
+
+  Pour faire en sorte que le contenus dans `card-content` soit se place devant l'image on doit passer `card-content` aussi en position `absolute`.
+L'Effet rechercher est que l'on veut est que au survol on veut que la carte sur laquel on survol s'agrandissent et que toutes les autres cartes s'assombrissent et se cachent derrière une ombre.
+Pour faire cet effet on va d'abord detecter le survol de la carte et ainsi augmenter le `transform:scale(1.05)` de `card-bg`
