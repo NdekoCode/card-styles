@@ -1,54 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+.card-filter {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-color: #131416;
+  padding: 50px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  /* On centre notre element */
+  margin: auto;
+  width: 100%;
+  max-width: 1200px; /*Au dessus de 1200px notre contenus va etre centrer*/
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/app.css">
-    <title>Card images filter</title>
-</head>
+.card {
+  position: relative;
+  /* On met une padding-bottom car on ne veut pas mettre de height */
+  /* Le padding en pourcentage permet de signaler au navigateur que l'on a envie de garder une certaine proportion, ici en mettant un padding-bottom en pourcentage c'est pour dire que l'on a envie que la hauteur garder une certaine ration par rapport à la largeur */
+  padding-bottom: 75%;
+}
+.card-bg {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 24px;
+  overflow: hidden;
+}
 
-<body>
-    <!-- Va contenir toutes nos cartes -->
-    <div class="cards">
-        <!-- Carte  A -->
-        <a href="#" class="card">
-            <div class="card-bg" style="background-image:url('./assets/img/japon.jpg')"></div>
-            <div class="card-content">
-                <h3>Japon</h3>
-                <p>Voyage, architecto officia.</p>
-            </div>
-        </a>
-        <!-- Carte  B -->
+@media only screen and (min-width: 576px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-        <a href="#" class="card">
-            <div class="card-bg" style="background-image:url('./assets/img/Etas-unis.jpg')"></div>
-            <div class="card-content">
-                <h3>Etat-Unis</h3>
-                <p>Voyage, architecto officia.</p>
-            </div>
-        </a>
-
-        <!-- Carte  C -->
-
-        <a href="#" class="card">
-            <div class="card-bg" style="background-image:url('./assets/img/france.jpg')"></div>
-            <div class="card-content">
-                <h3>La france</h3>
-                <p>Voyage, architecto officia.</p>
-            </div>
-        </a>
-        <!-- Carte  D -->
-
-        <a href="#" class="card">
-            <div class="card-bg" style="background-image:url('./assets/img/canada.jpg')"></div>
-            <div class="card-content">
-                <h3>Le canada</h3>
-                <p>Voyage, architecto officia.</p>
-            </div>
-        </a>
-    </div>
-</body>
-
-</html>
+@media only screen and (min-width: 992px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

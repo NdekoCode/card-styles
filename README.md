@@ -1,6 +1,6 @@
 # card styles
 
-Ce repos sert à reunir l'ensemble de style sur les card que j'ai designer ou que je me suis inspirer.
+Ce repos sert à reunir l'ensemble de style sur les card que j'ai designer ou que je me suis inspirer et pour cela j'ai choisis d'avoir une approche mobile first.
 
 ## Card filtrer avec un effet de flou with blur
 
@@ -33,3 +33,27 @@ Juste après cet element div qui va contenir le background de notre image, on au
         <!-- Carte  D -->
     </div>
     ```
+Lors du style sur les `card` vous aller voir un code un peu particulier sur lequel on va utiliser des padding-bottom en pourcentage.
+
+```{CSS}
+
+.card {
+  position: relative;
+  padding-bottom: 75%;
+}
+.card-bg {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+```
+
+Sur `card` on met un `padding-bottom` car on ne veut pas mettre de height sur notre carte. etant donner que l'on a un enfant direct qui est en `position: absolute`.
+  *Le padding en pourcentage permet de signaler au navigateur que l'on a envie de garder une certaine proportion ou ratio par rapport à la largeur ou à la hauteur, ici en mettant un `padding-bottom` en pourcentage c'est pour dire que l'on a envie que la hauteur garder une certaine ratio par rapport à la largeur*.
+  Dans notre cas en précisant 150% sur le `padding-bottom`  on précise que le padding soit d'une certaine proportion, un certain pourcent par rapport à la largeur. et cela nous permet d'avoir des element qui auront toujours les memes proportions.
+  Cette technique sympas nous evite à ne pas jouer avec les medias queries avec la propriétés `width`, `height` pour faire matcher les images.
