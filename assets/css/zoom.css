@@ -3,6 +3,10 @@
   --card-h: 380px;
   --card-rounded: 10px;
   --white-color: rgba(255, 255, 255, 0.9);
+  --time-f: 0.95s;
+  --time-sm: 0.35s;
+  --fadeLeft: fadeLeft var(--time-f) forwards;
+  --fadeUp: fadeUp var(--time-f) forwards;
 }
 .box-zoom {
   width: 100%;
@@ -53,17 +57,6 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.box-zoom .icons {
-  min-width: 120px;
-  min-height: 50px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  bottom: 0;
-  right: 0;
-}
-
 .card1 {
   background-image: linear-gradient(
       to bottom,
@@ -94,4 +87,52 @@
 .card3:hover {
   background-position: left center;
   background-size: calc(var(--card-w) * 2);
+}
+
+.box-zoom .icons {
+  min-height: 120px;
+  min-width: 50px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  bottom: 0;
+  left: 0;
+}
+.box-zoom .title,
+.box-zoom .card .icons {
+  display: none;
+}
+.box-zoom .title {
+  margin: 1rem;
+}
+.box-zoom .card:hover .title {
+  display: block;
+  animation: var(--fadeUp);
+}
+.box-zoom .card:hover .icons {
+  display: flex;
+  animation: var(--fadeLeft);
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
