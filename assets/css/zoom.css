@@ -1,4 +1,10 @@
-.cards-zoom {
+:root {
+  --card-w: 300px;
+  --card-h: 380px;
+  --card-rounded: 10px;
+  --white-color: rgba(255, 255, 255, 0.9);
+}
+.box-zoom {
   width: 100%;
   min-height: 100vh;
   height: auto;
@@ -6,5 +12,72 @@
   font-family: Arial, "Segoe UI", Helvetica, sans-serif;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   align-items: center;
+}
+
+.box-zoom a {
+  color: inherit;
+  text-decoration: none;
+}
+.card {
+  height: auto;
+  min-width: var(--card-w);
+  min-height: var(--card-h);
+  border-radius: var(--card-rounded);
+  transition: all 0.95s;
+}
+.box-zoom .card {
+  background-color: #131416;
+  color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: var(--card-w);
+  /* On ajouter une ombre: zero sur X 70 sur Y , un flou de 63px et on va le retrecirla taille de l'ombre à -64px et ainsi on aura une petite ombre au milieu de la carte  */
+  box-shadow: 0 75px 60px -64px rgba(0, 0, 0, 0.9);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.box-zoom .card .border {
+  min-width: calc(var(--card-w) - 1rem);
+  min-height: calc(var(--card-h) - 1rem);
+  border-radius: var(--card-rounded);
+  border: 1px solid transparent;
+  transition: border-color 0.35s;
+}
+.box-zoom .card:hover .border {
+  border: 1px solid var(--white-color);
+}
+.card1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 65%,
+      rgba(0, 0, 0, 0.95)
+    ),
+    url("../img/user1.jpg");
+}
+.card2 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 65%,
+      rgba(0, 0, 0, 0.95)
+    ),
+    url("../img/user2.jpg");
+}
+
+.card3 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 65%,
+      rgba(0, 0, 0, 0.95)
+    ),
+    url("../img/user3.jpg");
+}
+.card1:hover,
+.card2:hover,
+.card3:hover {
+  background-position: left center;
+  background-size: calc(var(--card-w) * 2);
 }
