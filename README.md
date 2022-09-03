@@ -66,3 +66,13 @@ Sur `card` on met un `padding-bottom` car on ne veut pas mettre de height sur no
   Pour faire en sorte que le contenus dans `card-content` soit se place devant l'image on doit passer `card-content` aussi en position `absolute`.
 L'Effet rechercher est que l'on veut est que au survol on veut que la carte sur laquel on survol s'agrandissent et que toutes les autres cartes s'assombrissent et se cachent derrière une ombre.
 Pour faire cet effet on va d'abord detecter le survol de la carte et ainsi augmenter le `transform:scale(1.05)` de `card-bg`
+Pour faire en sorte que toutes les autres cartes s'assombrissent et se cachent derrière une ombre si elle ne sont pas survoler, pour faire cela on doit d'abord détecter quand on survole le parent des `card` ensuite, si une carte n'est pas survoler dans ce cas on va modifier `card-bg` par contre si la quand on survole le parent des `card` et que la card lui aussi est survoler, dans ce cas on va rien faire.
+La règle CSS à utiliser est:
+ On baisse la luminosité de toute nos cartes, on retire toutes les couleurs (càd pas de staturation), on augmente le contrast pour accentuer la difference entre le blanc et le noir et on va encore ajouter du flou.
+
+```{CSS}
+.cards:hover > .card:not(:hover) > .card-bg {
+
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20);
+}
+```

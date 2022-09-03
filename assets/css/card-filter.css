@@ -62,9 +62,16 @@
 .card:hover .card-bg {
   transform: scale(1.05);
 }
+.cards:hover > .card:not(:hover) .card-bg {
+  filter: brightness(0.5) saturate(0) contrast(1.2);
+}
 @media only screen and (min-width: 576px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards:hover > .card:not(:hover) .card-bg {
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(5px);
   }
 }
 

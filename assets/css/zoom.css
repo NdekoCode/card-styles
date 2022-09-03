@@ -1,0 +1,10 @@
+.cards-zoom {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  padding: 50px;
+  font-family: Arial, "Segoe UI", Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
