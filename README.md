@@ -76,3 +76,45 @@ La règle CSS à utiliser est:
     filter: brightness(0.5) saturate(0) contrast(1.2) blur(20);
 }
 ```
+
+## Effet de zoom
+
+Pour la carte avec effet de zoom, la technique est d'utiliser var(--fadeLeft) background-size et  background-position.
+
+Quand on va survoler la carte le `background-size` va etre doubler et  `background-position` ira à gauche au centre.
+
+```{CSS}
+.card1:hover,
+.card2:hover,
+.card3:hover {
+  background-position: left center;
+  background-size: calc(var(--card-w) * 2);
+}
+```
+
+## Skelon AJAX loading believemy
+
+Pour ce nouveau cas, on va partir du fait que on a une carte avec une classe `card` et quand on veux faire le chargement en **skelon** on va lui ajouter la classe `is-loading`.
+Quand l'element `.card.is-loading` existe on va definir:
+
+- Un fond d'une couleur assez différente,
+- Des hauteurs assez différentes
+- Animer notre background de sorte qu'on va avoir l'impresion que l'element charge
+ alors que ça sera le background qui change et qui bouge en permenance.
+
+Et pour l'animation qui permet de faire en sorte qu'il y est un décalage d'un trait obique Oblique on utilise
+
+```{CSS}
+@keyframes gradientLoading {
+  to {
+    /* On veux déplacer l'acces des absicess à moins DE 200% */
+    background-position-x: -200%;
+  }
+}
+```
+
+et sur les elements visés lors du chargement on leurs met var(--fadeLeft) style:
+
+```{CSS}
+  animation: gradientLoading 1.15s infinite linear forwards;
+```
