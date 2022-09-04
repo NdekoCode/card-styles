@@ -25,7 +25,7 @@
 .cards-grid .card {
   background-color: #f1f1f1;
 }
-.cards-grid .card-img img {
+.cards-grid .card-img {
   display: block;
   height: 200px;
   width: 100%;
@@ -41,22 +41,23 @@
 
 /* Tous les element qui ont dans leurs classe "skeleton-QuelQueChose" */
 *[class*="skeleton-"] {
-  margin: 10px 0;
+  margin-bottom: 10px;
   background-color: #4c4c4c;
   background: linear-gradient(110deg, #414141 8%, #838383 18%, #414141 33%);
   background-size: 200% 100%;
-  animation: Fadeskeleton 05s ease-in-out infinite alternate;
+  animation: Fadeskeleton 1.75s ease-in-out infinite alternate;
 }
 .skeleton-text {
-  min-height: 55px;
+  max-width: 65%;
+  min-height: 15px;
 }
-.skeleton-text:first-of-type {
-  min-height: 75px;
+.skeleton-text:first-of-type,
+.skeleton-text:last-of-type {
+  max-width: 90%;
 }
 .skeleton-text:last-of-type {
-  min-height: 75px;
+  min-height: 20px;
 }
-
 img.skeleton-anim {
   animation: Fadeskeleton 05s ease-in-out infinite alternate;
 }
