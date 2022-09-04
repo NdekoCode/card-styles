@@ -1,0 +1,75 @@
+.cards-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  min-height: 100vh;
+  height: auto;
+  padding: 50px;
+  font-family: Arial, "Segoe UI", Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  background: linear-gradient(to right, #434343, #212121);
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  width: 100%;
+  gap: 1rem;
+  padding: 0 20px;
+  margin: 4rem auto 0;
+}
+.cards-grid .card {
+  background-color: #f1f1f1;
+}
+.cards-grid .card-img img {
+  display: block;
+  height: 200px;
+  width: 100%;
+  background-color: #4c4c4c;
+  object-fit: cover;
+}
+.card-content {
+  padding: 15px 25px;
+}
+.skeleton-title {
+  min-height: 30px;
+}
+
+/* Tous les element qui ont dans leurs classe "skeleton-QuelQueChose" */
+*[class*="skeleton-"] {
+  margin: 10px 0;
+  background-color: #4c4c4c;
+  background: linear-gradient(110deg, #414141 8%, #838383 18%, #414141 33%);
+  background-size: 200% 100%;
+  animation: Fadeskeleton 05s ease-in-out infinite alternate;
+}
+.skeleton-text {
+  min-height: 55px;
+}
+.skeleton-text:first-of-type {
+  min-height: 75px;
+}
+.skeleton-text:last-of-type {
+  min-height: 75px;
+}
+
+img.skeleton-anim {
+  animation: Fadeskeleton 05s ease-in-out infinite alternate;
+}
+
+/* 
+ background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+*/
+@keyframes Fadeskeleton {
+  /* L'element va passer de son opacité de 1 jusqu'à 0.6 */
+  to {
+    opacity: 0.6;
+    background-position-x: -200%;
+  }
+}
