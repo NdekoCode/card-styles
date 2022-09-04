@@ -1,0 +1,18 @@
+.box-ajax {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-color: #ddd;
+  padding: 50px;
+  font-family: Arial, "Segoe UI", Helvetica, sans-serif;
+}
+.box-ajax .card {
+  margin: 10px;
+  min-width: 300px;
+  background-color: #fff;
+}
+.card img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}

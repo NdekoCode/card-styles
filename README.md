@@ -76,3 +76,22 @@ La règle CSS à utiliser est:
     filter: brightness(0.5) saturate(0) contrast(1.2) blur(20);
 }
 ```
+
+## Effet de zoom
+
+Pour la carte avec effet de zoom, la technique est d'utiliser var(--fadeLeft) background-size et  background-position.
+
+Quand on va survoler la carte le `background-size` va etre doubler et  `background-position` ira à gauche au centre.
+
+```{CSS}
+.card1:hover,
+.card2:hover,
+.card3:hover {
+  background-position: left center;
+  background-size: calc(var(--card-w) * 2);
+}
+```
+
+## Skelon AJAX loading believemy
+
+Pour ce nouveau cas, on va partir du fait que on a une carte avec une classe `card` et quand on veux faire le chargement en **skelon** on va lui ajouter la classe `is-loading`.
